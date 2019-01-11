@@ -2,7 +2,7 @@ class Api::PostsController < ApplicationController
   before_action :set_post, only: [:show, :update, :destroy]
 
   def index
-    render json: Post.all
+    render json: Post.order(created_at: :desc)
   end
 
   def show
@@ -22,7 +22,7 @@ class Api::PostsController < ApplicationController
   end
 
   def create
-    post = current_user.posts.new(post_params)
+    post = Post.create(post_params)
 
     if post.save
       render json: post
@@ -38,6 +38,6 @@ class Api::PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:text, :likes, :dislikes)
+    params.require(:post).permit(:text, :likes, :dislikes, :user_id)
   end
 end

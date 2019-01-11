@@ -2,12 +2,8 @@ import React from 'react';
 import {
   Container,
   Grid,
-  Button,
-  Input,
-  Text,
   Card,
   Sticky,
-  Rail,
   Icon,
   Segment,
   Feed,
@@ -27,8 +23,17 @@ class FeedView extends React.Component {
       .then( ({ data: posts }) => this.setState({ posts }) )
   }
 
+  newPost = (post) => {
+    this.setState({
+      posts: [post, ...this.state.posts]
+    })
+  }
+
   displayPosts = () => {
+    const user = {}
     return this.state.posts.map(post => {
+        axios.get(`api/user/${post.user_id}`)
+          .then(res => user = res)
         return(
         <Segment>
              <Feed.Event>
@@ -84,7 +89,7 @@ class FeedView extends React.Component {
           </Grid.Column>
           <Grid.Column width={8}>
             <Grid.Row>
-              <FeedPost/>
+              <FeedPost newPost={this.newPost}/>
             </Grid.Row>
             <Feed>
               {this.displayPosts()}
