@@ -19,18 +19,12 @@ import FeedPost from './FeedPost';
 class FeedView extends React.Component {
 
   state = {
-    posts: [{
-      text: 'Test',
-      likes: 100,
-      dislikes: 3,
-    },]
+    posts: []
   }
 
-  componentDidUpdate() {
-    axios.get('localhost:3001/api_posts')
-      .then( res => this.setState({
-        posts: res,
-      }))
+  componentDidMount() {
+    axios.get('/api/posts')
+      .then( ({ data: posts }) => this.setState({ posts }) )
   }
 
   displayPosts = () => {

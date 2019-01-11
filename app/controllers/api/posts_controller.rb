@@ -1,7 +1,8 @@
 class Api::PostsController < ApplicationController
-  before_action :set_post, :only [:show, :update, :destroy]
+  before_action :set_post, only: [:show, :update, :destroy]
+
   def index
-    render json: current_user.Post.all
+    render json: Post.all
   end
 
   def show
@@ -33,7 +34,7 @@ class Api::PostsController < ApplicationController
   private
 
   def set_post
-    @post = current_user.post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
   end
 
   def post_params
