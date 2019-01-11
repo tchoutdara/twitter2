@@ -55,7 +55,7 @@ export const handleLogin = (user, history) => {
       .then(res => {
         const { data: { data: user } } = res;
         dispatch(login(user));
-        history.push('/');
+        history.push('/feed');
       })
       .catch( res => {
         let errors = res.response.data.errors ? res.response.data.errors : ['Something went wrong']
