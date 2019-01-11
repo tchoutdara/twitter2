@@ -5,6 +5,11 @@ class Api::PostsController < ApplicationController
     render json: Post.order(created_at: :desc)
   end
 
+  def user_posts
+    user = User.find(params[:id])
+    render User.posts
+  end
+
   def show
     render json: @post
   end
