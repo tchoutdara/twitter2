@@ -23,8 +23,15 @@ class FeedView extends React.Component {
   }
 
   componentDidMount() {
+<<<<<<< HEAD
     axios.get('/api/posts')
       .then( ({ data: posts }) => this.setState({ posts }) )
+=======
+    axios.get('localhost:3001/api/posts')
+      .then( res => this.setState({
+        posts: res,
+      }))
+>>>>>>> rebase
   }
 
   displayPosts = () => {
