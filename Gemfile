@@ -36,7 +36,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'faker'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
