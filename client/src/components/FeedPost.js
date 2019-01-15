@@ -17,7 +17,7 @@ class FeedPost extends React.Component {
     const { value } = e.target;
     this.setState({
       input: value
-    });
+    })
   }
 
   handleSubmit = (e) => {
