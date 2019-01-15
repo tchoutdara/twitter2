@@ -29,14 +29,15 @@ class FeedView extends React.Component {
     })
   }
   
-  // addLike = () => {
-  //   axios.put(`/api/post/${post_id}`)
-  //     .then( res => {
-  //       this.setState({
-  //         likes: +1,
-  //         })
-  //       })
-  //     }
+  addLike = () => {
+   const post = {text: this.props.user.text, likes: this.props.user.likes, dislikes: this.props.user.dislikes, user_id: this.props.user.user.id}
+    axios.put('/api/post/', post )
+      .then( res => {
+        this.setState({
+          likes: + 1,
+          })
+        })
+      }
 
 
   displayPosts = () => {
