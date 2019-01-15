@@ -58,7 +58,7 @@ class FeedView extends React.Component {
                 </Feed.Extra>
                 <Feed.Meta>
                   <Feed.Like>
-                    <Icon name='thumbs up' onclick={this.addLike()}/>
+                    <Icon name='thumbs up'/>
                     {post.likes}
                   </Feed.Like>
                   <Feed.Like>
