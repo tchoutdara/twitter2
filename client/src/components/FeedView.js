@@ -29,15 +29,15 @@ class FeedView extends React.Component {
     })
   }
   
-  addLike = () => {
-   const post = {text: this.props.user.text, likes: this.props.user.likes, dislikes: this.props.user.dislikes, user_id: this.props.user.user.id}
-    axios.put('/api/post/', post )
-      .then( res => {
-        this.setState({
-          likes: + 1,
-          })
-        })
-      }
+  // addLike = () => {
+  //  const post = {text: this.state.post.text, likes: this.state.post.likes, dislikes: this.state.post.dislikes, user_id: this.state.post.post.id}
+  //   axios.put('/api/post/', post )
+  //     .then( res => {
+  //       this.setState({
+  //         likes: + 1,
+  //         })
+  //       })
+  //     }
 
 
   displayPosts = () => {
@@ -59,7 +59,8 @@ class FeedView extends React.Component {
                 </Feed.Extra>
                 <Feed.Meta>
                   <Feed.Like>
-                    <Icon name='thumbs up'/>
+                    <Icon name='thumbs up' />
+                    {/* onClick={this.addLike()} */}
                     {post.likes}
                   </Feed.Like>
                   <Feed.Like>
