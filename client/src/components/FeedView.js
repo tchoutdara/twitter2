@@ -30,7 +30,7 @@ class FeedView extends React.Component {
   }
   
   addLike = (post) => {
-    axios.put(`/api/posts/${post.id}`, {
+    axios.patch(`/api/posts/${post.id}`, {
       likes: +1
     })
     .then(response => {
