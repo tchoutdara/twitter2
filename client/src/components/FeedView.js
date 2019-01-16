@@ -30,7 +30,7 @@ class FeedView extends React.Component {
   }
   
   addLike = (post) => {
-    axios.put(`/api/posts/${post.id}`, {
+    axios.put(`/api/posts/${post}`, {
       likes: +1
     })
     .then(response => {
@@ -61,7 +61,7 @@ class FeedView extends React.Component {
                 </Feed.Extra>
                 <Feed.Meta>
                   <Feed.Like>
-                    <Icon name='thumbs up' onClick={() => this.addLike(post)} />                     
+                    <Icon name='thumbs up' onClick={() => this.addLike(post.id)} />                     
                     {post.likes}
                   </Feed.Like>
                   <Feed.Like>

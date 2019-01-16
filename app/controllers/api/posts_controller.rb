@@ -1,5 +1,5 @@
 class Api::PostsController < ApplicationController
-  before_action :set_post, only: [:show, :update, :destroy]
+  before_action :set_post, only: [:show, :destroy]
 
   def index
     render json: Post.order(created_at: :desc)
@@ -19,10 +19,10 @@ class Api::PostsController < ApplicationController
   end
 
   def update
-    if @post.update(post_params)
-      render json: @post 
+    if Post.find(params[:id]).update(post_params)
+      render json: Post.find(params[:id])
     else
-      render json: post.errors, status: 422
+      render json: Post.errors, status: 422
     end
   end
 
