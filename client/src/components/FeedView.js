@@ -42,6 +42,19 @@ class FeedView extends React.Component {
     })    
   }
 
+  addDislike = (post, dislikes) => {
+    const dislike = dislikes + 1;
+    axios.put(`/api/posts/${post}`, {
+      dislikes: dislike
+    })
+    .then(response => {
+      console.log(response);
+    })
+    .catch(error => {
+      console.log(error);
+    })    
+  }
+
 
   displayPosts = () => {
     const user = {}
@@ -66,7 +79,7 @@ class FeedView extends React.Component {
                     {post.likes}
                   </Feed.Like>
                   <Feed.Like>
-                    <Icon name='thumbs down' />
+                    <Icon name='thumbs down' onClick={() => this.addDislike(post.id, post.dislikes)}/>
                     {post.dislikes}
                   </Feed.Like>
                 </Feed.Meta>
