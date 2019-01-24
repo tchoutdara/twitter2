@@ -10,6 +10,7 @@ import ProtectedRoute from './ProtectedRoute';
 import AuthRoute from './AuthRoute';
 import FetchUser from './FetchUser';
 import Feed from './FeedView';
+import Chat from './Chat';
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/feed" component={Feed} />
+            <Route exact path="/chat" component={Chat} />
             <AuthRoute exact path="/login" component={Login} />
             <AuthRoute exact path="/register" component={Register} />
             <Route component={NoMatch} />
