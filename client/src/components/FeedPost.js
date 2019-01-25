@@ -23,7 +23,7 @@ class FeedPost extends React.Component {
   handleSubmit = (e) => {
     const post = {text: this.state.input, likes: 0, dislikes: 0, user_id: this.props.user.user.id}
     e.preventDefault()
-    axios.post('/api/posts/', post)
+    axios.post('api/posts/', post)
       .then(res => this.setState({
         input: '',
       },() => {

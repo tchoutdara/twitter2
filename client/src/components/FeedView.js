@@ -60,7 +60,6 @@ class FeedView extends React.Component {
 
   formatDate = (post) => {
     const date = new Date(post.created_at)
-    console.log(date.getDate())
     return (<em>{date.getMonth() + 1}/{date.getDate()}/{date.getFullYear()}</em>)
   }
 
@@ -69,7 +68,6 @@ class FeedView extends React.Component {
     let postingUser = {}
     return this.state.posts.map(post => {
       postingUser = this.state.users.find(user => user.id === post.user_id)
-      console.log(postingUser)
         return(
         <Segment>
              <Feed.Event>
