@@ -58,6 +58,12 @@ class FeedView extends React.Component {
     })    
   }
 
+  formatDate = (post) => {
+    const date = new Date(post.created_at)
+    console.log(date.getDate())
+    return (<em>{date.getMonth() + 1}/{date.getDate()}/{date.getFullYear()}</em>)
+  }
+
 
   displayPosts = () => {
     let postingUser = {}
@@ -71,7 +77,7 @@ class FeedView extends React.Component {
               <Feed.Content>
                 <Feed.Summary>
                   <a>{`${postingUser ? postingUser.nickname : null}`}</a> posted on his page
-                  <Feed.Date>3 days ago</Feed.Date>
+                  <Feed.Date>{this.formatDate(post)}</Feed.Date>
                 </Feed.Summary>
                 <Feed.Extra text>
                   {post.text}
