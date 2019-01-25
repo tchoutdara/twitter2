@@ -15,12 +15,15 @@ import FeedPost from './FeedPost';
 class FeedView extends React.Component {
 
   state = {
-    posts: []
+    posts: [],
+    users: [],
   }
 
   componentDidMount() {
     axios.get('/api/posts')
       .then( ({ data: posts }) => this.setState({ posts }) )
+    axios.get('/api/user')
+      .then( res => this.setState({ users: res.data }) )
   }
 
   newPost = (post) => {
@@ -57,17 +60,17 @@ class FeedView extends React.Component {
 
 
   displayPosts = () => {
-    const user = {}
+    let postingUser = {}
     return this.state.posts.map(post => {
-        axios.get(`api/user/${post.user_id}`)
-          .then(res => user = res)
+      postingUser = this.state.users.find(user => user.id === post.user_id)
+      console.log(postingUser)
         return(
         <Segment>
              <Feed.Event>
               <Feed.Label image='/images/avatar/small/joe.jpg' />
               <Feed.Content>
                 <Feed.Summary>
-                  <a>Joe Henderson</a> posted on his page
+                  <a>{`${postingUser ? postingUser.nickname : null}`}</a> posted on his page
                   <Feed.Date>3 days ago</Feed.Date>
                 </Feed.Summary>
                 <Feed.Extra text>
