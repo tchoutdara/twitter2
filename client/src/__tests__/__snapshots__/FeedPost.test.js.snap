@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FeedPost /> render matches snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(FeedPost)>
+    <FeedPost
+      dispatch={[Function]}
+      user={
+        Object {
+          "posts": Array [],
+        }
+      }
+    >
+      <Segment>
+        <div
+          className="ui segment"
+        >
+          <Input
+            action={true}
+            fluid="true"
+            onChange={[Function]}
+            placeholder="Write something no one will care about..."
+            type="text"
+          >
+            <div
+              className="ui fluid action input"
+            >
+              <input
+                key=".0"
+                onChange={[Function]}
+                placeholder="Write something no one will care about..."
+                type="text"
+              />
+              <Button
+                as="button"
+                key=".1"
+                onClick={[Function]}
+              >
+                <button
+                  className="ui button"
+                  onClick={[Function]}
+                >
+                  Post
+                </button>
+              </Button>
+            </div>
+          </Input>
+        </div>
+      </Segment>
+    </FeedPost>
+  </Connect(FeedPost)>
+</Provider>
+`;

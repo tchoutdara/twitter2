@@ -4,8 +4,17 @@ import ReactDOM from 'react-dom';
 import FeedView from '../components/FeedView';
 
 describe('<FeedView />', () => {
-     it('renders an editor area', () => {
-         const editor = shallow(<FeedView />)
-         expect(editor.find('textarea').length).toEqual(1); 
-     })
+    let component;
+    
+    beforeEach = () => {
+        component = shallow(<FeedView />)
+    }
+
+    it('gets users and posts', async () => {
+        component = shallow(<FeedView />)
+        await component.instance().componentDidMount()
+        console.log(component.state())
+        expect(component.state('users').length).toEqual(3)
+        expect(component.state('posts').length).toEqual(30)
+    })
 })
